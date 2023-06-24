@@ -12,7 +12,19 @@ export class AboutClient extends Component {
     avatarEndpoint = 'https://www.mocky.io/v2/5cc8019d300000980a055e76'
 
     state = {
-        dataSend: false
+        dataSend: false,
+        client: {
+            avatarUrl: '/img/avatars/thumb-6.jpg',
+            name: 'Charlie Howard',
+            email: 'charlie.howard@themenate.com',
+            userName: 'Charlie',
+            dateOfBirth: null,
+            phoneNumber: '+44 (1532) 135 7921',
+            website: '',
+            address: '',
+            city: '',
+            postcode: ''
+        }
     }
 
     getBase64(img, callback) {
@@ -26,12 +38,22 @@ export class AboutClient extends Component {
         const onFinish = values => {
             const key = 'updatable';
             message.loading({content: 'Updating...', key});
-
             setTimeout(() => {
                 message.success({content: 'Done!', key, duration: 2});
-                this.setState({dataSend: true})
+                this.setState({
+                    dataSend: true, client: {
+                        name: values.name,
+                        email: values.email,
+                        userName: values.userName,
+                        dateOfBirth: values.dateOfBirth,
+                        phoneNumber: values.phoneNumber,
+                        website: values.website,
+                        address: values.address,
+                        city: values.city,
+                        postcode: values.postcode,
+                    }
+                })
             }, 1000);
-
         };
 
 

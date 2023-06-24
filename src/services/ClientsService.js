@@ -1,6 +1,5 @@
-import fetch from 'auth/FetchInterceptor'
 import axios from "axios";
-import { API_BASE_URL_CLIENST} from "../configs/AppConfig";
+import {API_BASE_URL_CLIENST} from "../configs/AppConfig";
 
 const instance = axios.create({
     baseURL: API_BASE_URL_CLIENST,

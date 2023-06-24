@@ -1,6 +1,5 @@
 import React from 'react';
-import {Routes as RouterRoutes, Route, Navigate} from 'react-router-dom';
-import {AUTHENTICATED_ENTRY} from 'configs/AppConfig';
+import {Route, Routes as RouterRoutes} from 'react-router-dom';
 import {protectedRoutes, publicRoutes} from 'configs/RoutesConfig';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
