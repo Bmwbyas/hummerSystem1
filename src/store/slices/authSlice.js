@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AUTH_TOKEN } from 'constants/AuthConstant';
 import FirebaseService from 'services/FirebaseService';
 import AuthService from 'services/AuthService';
+import {getClients} from "./clientsSlice";
 
 export const initialState = {
 	loading: false,
@@ -157,6 +158,15 @@ export const authSlice = createSlice({
 			.addCase(signInWithFacebook.rejected, (state, action) => {
 				state.message = action.payload
 				state.showMessage = true
+				state.loading = false
+			})
+			.addCase(getClients.pending,(state)=>{
+				state.loading = true
+			})
+			.addCase(getClients.fulfilled,(state)=>{
+				state.loading = false
+			})
+			.addCase(getClients.rejected,(state)=>{
 				state.loading = false
 			})
 	},

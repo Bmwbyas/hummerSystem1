@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import theme from './slices/themeSlice'
 import auth from './slices/authSlice'
+import clients from './slices/clientsSlice'
 
 const rootReducer = (asyncReducers) => (state, action) => {
     const combinedReducer = combineReducers({
         theme,
         auth,
+        clients,
         ...asyncReducers,
     })
     return combinedReducer(state, action)
